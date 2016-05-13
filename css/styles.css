@@ -17,6 +17,21 @@ header {
 
 #top-menu a {
 	text-decoration: none;
+	color: white;
+	transition:.5s;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+}
+
+#top-menu a:hover{
+	color: #f7c31e;
+	transition:.5s;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
 }
 
 #top-menu ul {
@@ -38,6 +53,7 @@ main {
 
 footer {
 	background-color: #f7c31e;
+	border-top: 10px solid #f25f00;
 }
 
 footer p {
