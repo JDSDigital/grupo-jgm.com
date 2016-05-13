@@ -2,13 +2,17 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: #f5fbf5 !important;
+	background-color: #15550c !important;
+}
+
+header {
+	background-color: #f5fbf5 !important
 }
 
 #top-menu {
 	margin: 0;
 	padding: 0;
-	background-color: orange;
+	background-color: #f25f00;
 }
 
 #top-menu a {
@@ -27,9 +31,13 @@ body {
 }
 
 main {
-	width: 744px;
+	//width: 744px;
 	height: 409px;
-	background-color: orange;
+	background-color: #15550c;
+}
+
+footer {
+	background-color: #f7c31e;
 }
 
 footer p {
