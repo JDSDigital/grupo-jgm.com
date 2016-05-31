@@ -286,6 +286,7 @@ ul.tabs li.current{
 	padding: 20px 50px 50px 50px;
 	min-height: 300px;
 	border-radius: 0px 10px 10px 10px;
+	overflow: hidden;
 }
 
 .tab-content-2 h4 {
@@ -304,6 +305,25 @@ ul.tabs li.current{
 }
 
 /* Accordion Menu END */
+
+.productImg {
+	width: 230px;
+	margin: 15px;
+	float: right;
+}
+
+
+.listaServiciosInline ul {
+	list-style-type: none;
+	position: relative;
+}
+
+.listaServiciosInline li {
+	display: inline;
+	//position: absolute; 
+	bottom: 30px;
+}
+
 
 footer {
 	background-color: #f7c31e;
