@@ -27,6 +27,13 @@ $(document).ready(function(){
 
 })
 
+$(document).ready(function() {
+		$(".fancybox").fancybox({
+			openEffect	: 'fade',
+			closeEffect	: 'fade'
+		});
+	});
+
 /* JSSOR Start */
 
 jssor_1_slider_init = function() {

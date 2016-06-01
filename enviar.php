@@ -38,25 +38,28 @@
 			</div>
 			<div class="col-xs-2">
 
-				<form role="form" method="POST" action="enviar.php">
-					<div class="form-group">
-						<label for="text">Nombre</label>
-						<input name="nombre" type="text" class="form-control" id="email">
-					</div>
-					<div class="form-group">
-						<label for="text">Apellido</label>
-						<input name="apellido" type="text" class="form-control" id="email">
-					</div>
-					<div class="form-group">
-						<label for="email">Correo</label>
-						<input name="email" type="email" class="form-control" id="email">
-					</div>
-					<div class="form-group">
-						<label for="textarea">Comentario</label>
-						<textarea name="comentario" class="form-control" rows="5" id="comentario"></textarea>
-					</div>
-					<button type="submit" class="btn btn-default">Enviar</button>
-				</form>
+				<?php
+				$nombre = $_POST['nombre'];
+				$apellido= $_POST['apellido'];
+				$mail = $_POST['email'];
+
+				$header = 'From: ' . $mail . " \r\n";
+				$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
+				$header .= "Mime-Version: 1.0 \r\n";
+				$header .= "Content-Type: text/plain";
+
+				$mensaje = "Este mensaje fue enviado por " . $nombre ." ". $apellido.  " \r\n";
+				$mensaje .= "Su e-mail es: " . $mail . " \r\n";
+				$mensaje .= "Mensaje: " . $_POST['comentario'] . " \r\n";
+				$mensaje .= "Enviado el " . date('d/m/Y', time());
+
+				$para = 'jdsosa@gmail.com'; // aqui se cambia el correo para que el cliente reciba el correo
+				$asunto = 'Asunto del mail recibido';
+
+				mail($para, $asunto, utf8_decode($mensaje), $header);
+
+				echo 'Mensaje enviado correctamente';
+				?>
 
 			</div>
 		</div>
