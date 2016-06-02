@@ -349,6 +349,16 @@ ul.tabs li.current{
 	-webkit-transition: .2s;
 }
 
+.contactForm {
+	background-color: white;
+	padding: 25px;
+	border-radius: 5px;
+}
+
+.form-control {
+	width: 89% !important;
+}
+
 
 footer {
 	background-color: #f7c31e;
