@@ -281,6 +281,7 @@ ul.tabs li.current{
 .tab-content-2 {
 	//background: #ededed;
 	display: none;
+	position: relative;
 	background: #f0f5b3;
 	margin-bottom: 10px;
 	padding: 20px 50px 50px 50px;
@@ -312,16 +313,40 @@ ul.tabs li.current{
 	float: right;
 }
 
-
-.listaServiciosInline ul {
-	list-style-type: none;
-	position: relative;
+.bottomMenu {
+	position: absolute;
+	bottom: 20px;
+	text-align: center;
+	margin: 0 auto;
+	width: 85%;
 }
 
-.listaServiciosInline li {
+.bottomMenu ul {
+	list-style-type: none;
+	text-align: center;
+	padding: 0;
+}
+
+.bottomMenu li {
 	display: inline;
-	//position: absolute;
-	bottom: 30px;
+	margin: 30px;
+	cursor: pointer;
+	font-weight: bold;
+	//color: #f25f00;
+	transition: .2s;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+}
+
+.bottomMenu li:hover {
+	color: #f25f00;
+	transition: .2s;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
 }
 
 

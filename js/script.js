@@ -27,6 +27,21 @@ $(document).ready(function(){
 
 })
 
+$(document).ready(function(){
+
+	$('.listaServiciosBottom li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.listaServiciosBottom li').removeClass('current-3');
+		$('.tab-content-3').removeClass('current-3');
+
+		$(this).addClass('current-3');
+		$("#"+tab_id).addClass('current-3');
+
+	})
+
+})
+
 $(document).ready(function() {
 		$(".fancybox").fancybox({
 			openEffect	: 'fade',
