@@ -230,6 +230,7 @@ ul.tabs li.current{
 	padding: 20px 50px 50px 50px;
 	min-height: 250px;
 	border-radius: 0px 10px 10px 10px;
+	text-align: justify;
 }
 
 .tab-content.current{
@@ -288,6 +289,7 @@ ul.tabs li.current{
 	min-height: 300px;
 	border-radius: 0px 10px 10px 10px;
 	overflow: hidden;
+	text-align: justify;
 }
 
 .tab-content-2 h4 {
@@ -349,14 +351,38 @@ ul.tabs li.current{
 	-webkit-transition: .2s;
 }
 
+.contactData {
+	//text-align: right;
+}
+
+.contactData p{
+	margin: 0;
+	padding: 0;
+}
+
+.contactData table {
+	text-align: right;
+	margin: 0 auto;
+}
+
 .contactForm {
-	background-color: white;
-	padding: 25px;
+	background-color: #f0f5b3;
+	padding: 30px;
 	border-radius: 5px;
+}
+
+.contactForm h3 {
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 30px;
 }
 
 .form-control {
 	width: 89% !important;
+}
+
+.form-text {
+	height: 15px !important;
 }
 
 
