@@ -19,26 +19,41 @@ $(document).ready(function(){
 
 		$('.listaServicios li').removeClass('current-2');
 		$('.tab-content-2').removeClass('current-2');
+    $('.bottomMenu li').removeClass('current-3');
 
 		$(this).addClass('current-2');
 		$("#"+tab_id).addClass('current-2');
+    $('.1').addClass('current-3');
 
+    
+    if (tab_id == "tab-1") {
+      $("#tab-111").addClass('current-3');
+    } else if (tab_id == "tab-2") {
+      $("#tab-121").addClass('current-3');
+    }
+    else if (tab_id == "tab-3") {
+      $("#tab-131").addClass('current-3');
+    }
+    else if (tab_id == "tab-4") {
+      $("#tab-141").addClass('current-3');
+    }
+    
 	})
 
 })
 
 $(document).ready(function(){
 
-	$('.listaServiciosBottom li').click(function(){
-		var tab_id = $(this).attr('data-tab');
+  $('.listaServiciosBottom li').click(function(){
+    var tab_id = $(this).attr('data-tab');
 
-		$('.listaServiciosBottom li').removeClass('current-3');
-		$('.tab-content-3').removeClass('current-3');
+    $('.listaServiciosBottom li').removeClass('current-3');
+    $('.tab-content-3').removeClass('current-3');
 
-		$(this).addClass('current-3');
-		$("#"+tab_id).addClass('current-3');
+    $(this).addClass('current-3');
+    $("#"+tab_id).addClass('current-3');
 
-	})
+  })
 
 })
 

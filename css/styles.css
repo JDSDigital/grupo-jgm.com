@@ -351,6 +351,19 @@ ul.tabs li.current{
 	-webkit-transition: .2s;
 }
 
+.bottomMenu li.current-3{
+	font-weight: bold;
+	color: #f25f00;
+}
+
+.tab-content-3 {
+	display: none;
+}
+
+.tab-content-3.current-3{
+	display: inherit;
+}
+
 .contactData {
 	//text-align: right;
 }
