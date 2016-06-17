@@ -1,4 +1,26 @@
 @CHARSET "UTF-8";
+
+@media only screen and (max-width: 1000px) {
+    .twitter {
+        display: none;
+    }
+
+    .primary {
+    	display: none;
+    }
+
+    .secondary {
+    	display: inherit;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .secondary {
+    	display: none;
+    }
+}
+
+
 body {
 	margin: 0;
 	padding: 0;
