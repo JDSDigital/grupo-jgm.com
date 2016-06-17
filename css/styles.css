@@ -337,6 +337,10 @@ ul.tabs li.current{
 	float: right;
 }
 
+.gallery {
+	width: 100px;
+}
+
 .bottomMenu {
 	position: absolute;
 	bottom: 20px;
