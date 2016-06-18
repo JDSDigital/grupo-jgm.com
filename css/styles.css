@@ -337,8 +337,30 @@ ul.tabs li.current{
 	float: right;
 }
 
+.colors {
+  width:120px;
+  height:40px;
+  margin: 5px;
+  padding: 25px 5px 5px 5px;
+  border-radius:20px;
+  font-size:14px;
+  color:#000;
+  text-align:center;
+  vertical-align: middle;
+  display: inline-table;
+}
+
+.colors p {
+  text-align: center;
+}
+
 .gallery {
 	width: 100px;
+  padding: 5px;
+}
+
+.gallery:hover{
+  transform: scale(1.1);
 }
 
 .bottomMenu {
