@@ -25,7 +25,7 @@ $(document).ready(function(){
 		$("#"+tab_id).addClass('current-2');
     $('.1').addClass('current-3');
 
-    
+
     if (tab_id == "tab-1") {
       $("#tab-111").addClass('current-3');
     } else if (tab_id == "tab-2") {
@@ -36,7 +36,7 @@ $(document).ready(function(){
     }
     else if (tab_id == "tab-4") {
       $("#tab-141").addClass('current-3');
-    } 
+    }
     else if (tab_id == "tab-5") {
       $("#tab-211").addClass('current-3');
     }
@@ -47,7 +47,7 @@ $(document).ready(function(){
       $("#tab-231").addClass('current-3');
     }
 
-    
+
 	})
 
 })
@@ -70,7 +70,13 @@ $(document).ready(function(){
 $(document).ready(function() {
 		$(".fancybox").fancybox({
 			openEffect	: 'fade',
-			closeEffect	: 'fade'
+			closeEffect	: 'fade',
+			helpers : {
+				title : { type : 'inside' }
+			}, // helpers
+				beforeLoad: function() {
+					this.title = $(this.element).attr('caption');
+			}
 		});
 	});
 
