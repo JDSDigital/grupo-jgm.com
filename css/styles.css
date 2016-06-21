@@ -211,9 +211,13 @@ ul.tabs h4 {
 	font-weight: bold;
 }
 
+ul.tabs h5 {
+	font-weight: bold;
+}
+
 ul.tabs li{
 	color: #15550c;
-	padding: 10px 15px;
+	padding: 5px 15px;
 	cursor: pointer;
 	transition: .2s;
 	-o-transition: .2s;
