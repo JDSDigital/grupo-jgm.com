@@ -19,6 +19,7 @@ $(document).ready(function(){
 
 		$('.listaServicios li').removeClass('current-2');
 		$('.tab-content-2').removeClass('current-2');
+    $('.tab-content-3').removeClass('current-3');
     $('.bottomMenu li').removeClass('current-3');
 
 		$(this).addClass('current-2');
