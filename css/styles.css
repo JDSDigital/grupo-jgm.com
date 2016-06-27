@@ -466,18 +466,27 @@ ul.tabs li.current{
 	display: inherit;
 }
 
+.contact {
+	background: #f0f5b3;
+	padding: 20px 50px 50px 50px;
+	border-radius: 10px;
+	text-align: justify;
+}
+
 .contactData {
-	//text-align: right;
+	float: right;
+	text-align: right;
+}
+
+.contactData h3 {
+	margin: 0;
+	color: #f25f00;
+	font-weight: bold;
 }
 
 .contactData p{
 	margin: 0;
 	padding: 0;
-}
-
-.contactData table {
-	text-align: right;
-	margin: 0 auto;
 }
 
 .contactForm {
@@ -493,7 +502,9 @@ ul.tabs li.current{
 }
 
 .form-control {
-	width: 89% !important;
+	width: 100% !important;
+	margin: 0;
+	padding: 0;
 }
 
 .form-text {
