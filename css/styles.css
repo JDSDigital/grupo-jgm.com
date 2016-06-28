@@ -468,20 +468,20 @@ ul.tabs li.current{
 
 .contact {
 	background: #f0f5b3;
-	padding: 20px 50px 50px 50px;
+	padding: 20px;
 	border-radius: 10px;
 	text-align: justify;
+}
+
+.contact h3 {
+	margin: 0;
+	color: #f25f00;
+	font-weight: bold;
 }
 
 .contactData {
 	float: right;
 	text-align: right;
-}
-
-.contactData h3 {
-	margin: 0;
-	color: #f25f00;
-	font-weight: bold;
 }
 
 .contactData p{
@@ -506,6 +506,20 @@ ul.tabs li.current{
 	margin: 0;
 	padding: 0;
 }
+
+.form-group {
+	text-align: center;
+}
+
+.form-group table {
+	text-align: right;
+	margin: 20px;
+}
+
+.form-group td{
+	padding: 5px;
+}
+
 
 .form-text {
 	height: 15px !important;
