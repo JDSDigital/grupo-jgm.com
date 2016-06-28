@@ -479,6 +479,12 @@ ul.tabs li.current{
 	font-weight: bold;
 }
 
+.logo {
+	width: 120px;
+	//margin: 20px;
+	float: right;
+}
+
 .contactData {
 	float: right;
 	text-align: right;
