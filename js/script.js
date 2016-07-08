@@ -47,6 +47,15 @@ $(document).ready(function(){
     else if (tab_id == "tab-7") {
       $("#tab-231").addClass('current-3');
     }
+		else if (tab_id == "tab-13") {
+      $("#tab-511").addClass('current-3');
+    }
+		else if (tab_id == "tab-14") {
+      $("#tab-521").addClass('current-3');
+    }
+		else if (tab_id == "tab-15") {
+      $("#tab-531").addClass('current-3');
+    }
 
 
 	})
