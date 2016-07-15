@@ -440,7 +440,7 @@ ul.tabs li.current{
 
 .bottomMenu ul {
 	list-style-type: none;
-	text-align: center;
+	text-align: left;
 	padding: 0;
 }
 
