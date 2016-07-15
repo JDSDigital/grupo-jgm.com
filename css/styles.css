@@ -309,6 +309,10 @@ ul.tabs li.current{
 	color: #f25f00;
 }
 
+.listaPanel {
+	padding-left: 0;
+}
+
 .tab-content-2 {
 	//background: #ededed;
 	display: none;
