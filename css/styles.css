@@ -38,14 +38,22 @@ header {
 	background-color: #f5fbf5 !important
 }
 
-#top-menu {
+.navbar-menu {
 	margin: 0;
 	padding: 0;
 	background-color: #f25f00;
+	vertical-align: middle;
 }
 
-#top-menu a {
-	text-decoration: none;
+.top-menu {
+	margin: 0;
+	padding: 0;
+	background-color: #f25f00;
+	vertical-align: middle;
+}
+
+.top-menu a {
+	text-decoration: none !important;
 	color: white;
 	transition:.5s;
   -o-transition:.5s;
@@ -54,7 +62,7 @@ header {
   -webkit-transition:.5s;
 }
 
-#top-menu a:hover{
+.top-menu a:hover{
 	color: #f7c31e;
 	transition:.5s;
   -o-transition:.5s;
@@ -63,16 +71,51 @@ header {
   -webkit-transition:.5s;
 }
 
-#top-menu ul {
+.top-menu ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 10px;
 	min-width: 450px;
+	text-align: center;
 }
 
-#top-menu li {
+.top-menu li {
 	display: inline;
 	padding: 10px;
+	vertical-align: middle;
+}
+
+.top-menu-logo ul {
+	text-align: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 5px;
+}
+
+.top-menu-logo li {
+	display: inline;
+	padding: 0px;
+	vertical-align: middle;
+}
+
+.socialLogo {
+	margin: 0;
+	padding: 2px;
+	border-radius: 5px;
+	transition:.5s;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+}
+
+.socialLogo:hover {
+	background-color: #f7c31e;
+	transition:.5s;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
 }
 
 main {
@@ -329,6 +372,7 @@ ul.tabs li.current{
 .tab-content-2 h4 {
 	color: #f25f00;
 	font-weight: bold;
+	text-align: left
 }
 
 .tab-content-2 h5 {
