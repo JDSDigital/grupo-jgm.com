@@ -14,6 +14,56 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
+  $('#accordion a').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    $('.listaServicios li').removeClass('current-2');
+    $('.tab-content-2').removeClass('current-2');
+    $('.tab-content-3').removeClass('current-3');
+    $('.bottomMenu li').removeClass('current-3');
+
+    $('.main-link').addClass('current-2');
+    $("#"+tab_id).addClass('current-2');
+    $('.1').addClass('current-3');
+
+    if (tab_id == "tab-1") {
+      $("#tab-111").addClass('current-3');
+    } else if (tab_id == "tab-2") {
+      $("#tab-121").addClass('current-3');
+    }
+    else if (tab_id == "tab-3") {
+      $("#tab-131").addClass('current-3');
+    }
+    else if (tab_id == "tab-4") {
+      $("#tab-141").addClass('current-3');
+    }
+    else if (tab_id == "tab-5") {
+      $("#tab-211").addClass('current-3');
+    }
+    else if (tab_id == "tab-6") {
+      $("#tab-221").addClass('current-3');
+    }
+    else if (tab_id == "tab-7") {
+      $("#tab-231").addClass('current-3');
+    }
+    else if (tab_id == "tab-9") {
+      $("#tab-411").addClass('current-3');
+    }
+    else if (tab_id == "tab-13") {
+      $("#tab-511").addClass('current-3');
+    }
+    else if (tab_id == "tab-14") {
+      $("#tab-521").addClass('current-3');
+    }
+    else if (tab_id == "tab-15") {
+      $("#tab-531").addClass('current-3');
+    }
+  })
+
+})
+
+$(document).ready(function(){
+
 	$('.listaServicios li').click(function(){
 		var tab_id = $(this).attr('data-tab');
 
