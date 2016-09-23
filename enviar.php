@@ -86,15 +86,15 @@
 
 					<div class="form-group">
 
-						<?php /*
+						<?php
 						$nombre = $_POST['nombre'];
 						$apellido= $_POST['apellido'];
 						$mail = $_POST['email'];
 
-						$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
+						/*$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
 						$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
 						$header .= "Mime-Version: 1.0 \r\n";
-						$header .= "Content-Type: text/plain";
+						$header .= "Content-Type: text/plain";*/
 
 						$mensaje = "Este mensaje fue enviado por " . $nombre ." ". $apellido.  " \r\n";
 						$mensaje .= "Su e-mail es: " . $mail . " \r\n";
@@ -104,14 +104,15 @@
 						$para = 'jdsosa@gmail.com'; // aqui se cambia el correo para que el cliente reciba el correo
 						$asunto = 'Asunto del mail recibido';
 
-						$mail = mail($para, $asunto, utf8_decode($mensaje), $header);
-						mail($para, $asunto, utf8_decode($mensaje), $header);
+						$mail = mail($para, $asunto, utf8_decode($mensaje));
+						mail($para, $asunto, utf8_decode($mensaje));
 						echo 'Mensaje enviado correctamente ' .$mail;
-						*/ ?>
+						?>
 
-						<?php
-							require './includes/PHPMailerAutoload.php';
-							require './includes/class.phpmailer.php';
+						<?php/*
+							//require './includes/PHPMailerAutoload.php';
+							include './includes/class.phpmailer.php';
+							include './includes/smtp.php';
 
 							$mail = new PHPMailer;
 
@@ -137,7 +138,7 @@
 							$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
 							$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-							$mail->send();
+							$envio = $mail->send();
 
 							if(!$mail->send()) {
 							    echo 'Message could not be sent.';
@@ -147,7 +148,7 @@
 							}
 
 
-						?>
+						*/?>
 
 					</div>
 
