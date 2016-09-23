@@ -85,13 +85,13 @@
 				<form role="form" method="POST" action="enviar.php">
 
 					<div class="form-group">
-						
-						<?php
+
+						<?php /*
 						$nombre = $_POST['nombre'];
 						$apellido= $_POST['apellido'];
 						$mail = $_POST['email'];
 
-						$header = 'From: ' . $mail . " \r\n";
+						$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
 						$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
 						$header .= "Mime-Version: 1.0 \r\n";
 						$header .= "Content-Type: text/plain";
@@ -104,10 +104,50 @@
 						$para = 'jdsosa@gmail.com'; // aqui se cambia el correo para que el cliente reciba el correo
 						$asunto = 'Asunto del mail recibido';
 
+						$mail = mail($para, $asunto, utf8_decode($mensaje), $header);
 						mail($para, $asunto, utf8_decode($mensaje), $header);
+						echo 'Mensaje enviado correctamente ' .$mail;
+						*/ ?>
 
-						echo 'Mensaje enviado correctamente';
-						?>				
+						<?php
+							require './includes/PHPMailerAutoload.php';
+							require './includes/class.phpmailer.php';
+
+							$mail = new PHPMailer;
+
+							$mail->PluginDir = "./includes/";
+
+							//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+							$mail->isSMTP();                                      // Set mailer to use SMTP
+							$mail->Host = 'mail.grupo-jgm.com';  // Specify main and backup SMTP servers
+							$mail->SMTPAuth = true;                               // Enable SMTP authentication
+							$mail->Username = 'webmaster@grupo-jgm.com';                 // SMTP username
+							$mail->Password = 'wm12345';                           // SMTP password
+							//$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+							$mail->Port = 25;                                    // TCP port to connect to
+
+							$mail->setFrom('webmaster@grupo-jgm.com');
+							$mail->addAddress('jdsosa@gmail.com');     // Add a recipient
+							$mail->addAddress('webmaster@grupo-jgm.com');
+
+							$mail->isHTML(true);                                  // Set email format to HTML
+
+							$mail->Subject = 'Here is the subject';
+							$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+							$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+							$mail->send();
+
+							if(!$mail->send()) {
+							    echo 'Message could not be sent.';
+							    echo 'Mailer Error: ' . $mail->ErrorInfo;
+							} else {
+							    echo 'Message has been sent';
+							}
+
+
+						?>
 
 					</div>
 
