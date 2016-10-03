@@ -87,14 +87,30 @@
 					<div class="form-group">
 
 						<?php
+
+						# First, instantiate the SDK with your API credentials and define your domain.
+						$mg = new Mailgun("key-bb6be62102fbde6cb67a14a09ef126fe");
+						$domain = "mg.grupo-jgm.com";
+
+						# Now, compose and send your message.
+						$mg->sendMessage($domain, array('from'    => 'postmaster@mg.grupo-jgm.com',
+						                                'to'      => 'jdsosa@gmail.com',
+						                                'subject' => 'The PHP SDK is awesome!',
+						                                'text'    => 'It is so simple to send a message 2.'));
+
+																						echo "Mensaje enviado";
+
+						 ?>
+
+						<?php/*
 						$nombre = $_POST['nombre'];
 						$apellido= $_POST['apellido'];
 						$mail = $_POST['email'];
 
-						/*$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
+						$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
 						$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
 						$header .= "Mime-Version: 1.0 \r\n";
-						$header .= "Content-Type: text/plain";*/
+						$header .= "Content-Type: text/plain";
 
 						$mensaje = "Este mensaje fue enviado por " . $nombre ." ". $apellido.  " \r\n";
 						$mensaje .= "Su e-mail es: " . $mail . " \r\n";
