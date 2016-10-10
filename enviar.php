@@ -87,84 +87,37 @@
 					<div class="form-group">
 
 						<?php
+						$nombre = $_POST['nombre'];
+						$apellido = $_POST['apellido'];
+						$email = $_POST['email'];
+						$comentario = $_POST['comentario'];
 
-						# First, instantiate the SDK with your API credentials and define your domain.
-						$mg = new Mailgun("key-bb6be62102fbde6cb67a14a09ef126fe");
+						# Include the Autoloader (see "Libraries" for install instructions)
+						require 'vendor/autoload.php';
+						use Mailgun\Mailgun;
+
+						# Instantiate the client.
+						$mgClient = new Mailgun('key-bb6be62102fbde6cb67a14a09ef126fe');
 						$domain = "mg.grupo-jgm.com";
 
-						# Now, compose and send your message.
-						$mg->sendMessage($domain, array('from'    => 'postmaster@mg.grupo-jgm.com',
-						                                'to'      => 'jdsosa@gmail.com',
-						                                'subject' => 'The PHP SDK is awesome!',
-						                                'text'    => 'It is so simple to send a message 2.'));
+						# Make the call to the client.
+						$result = $mgClient->sendMessage($domain, array(
+						    'from'    => 'postmaster@mg.grupo-jgm.com',
+						    'to'      => 'jdsosa@gmail.com',
+						    'subject' => 'Hello',
+						    'text'    => '
+										Ha recibido un mensaje desde la página web.
 
-																						echo "Mensaje enviado";
+										Nombre: ' .$nombre .'
+										Apellido: ' .$apellido .'
+										Email: ' .$email .'
+										Comentario: ' .$comentario .'
+								'
+						));
+
+						echo "Mensaje enviado";
 
 						 ?>
-
-						<?php/*
-						$nombre = $_POST['nombre'];
-						$apellido= $_POST['apellido'];
-						$mail = $_POST['email'];
-
-						$header = 'From: ' .'webmaster@grupo-jgm.com' . " \r\n";
-						$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
-						$header .= "Mime-Version: 1.0 \r\n";
-						$header .= "Content-Type: text/plain";
-
-						$mensaje = "Este mensaje fue enviado por " . $nombre ." ". $apellido.  " \r\n";
-						$mensaje .= "Su e-mail es: " . $mail . " \r\n";
-						$mensaje .= "Mensaje: " . $_POST['comentario'] . " \r\n";
-						$mensaje .= "Enviado el " . date('d/m/Y', time());
-
-						$para = 'jdsosa@gmail.com'; // aqui se cambia el correo para que el cliente reciba el correo
-						$asunto = 'Asunto del mail recibido';
-
-						$mail = mail($para, $asunto, utf8_decode($mensaje));
-						mail($para, $asunto, utf8_decode($mensaje));
-						echo 'Mensaje enviado correctamente ' .$mail;
-						?>
-
-						<?php/*
-							//require './includes/PHPMailerAutoload.php';
-							include './includes/class.phpmailer.php';
-							include './includes/smtp.php';
-
-							$mail = new PHPMailer;
-
-							$mail->PluginDir = "./includes/";
-
-							//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-							$mail->isSMTP();                                      // Set mailer to use SMTP
-							$mail->Host = 'mail.grupo-jgm.com';  // Specify main and backup SMTP servers
-							$mail->SMTPAuth = true;                               // Enable SMTP authentication
-							$mail->Username = 'webmaster@grupo-jgm.com';                 // SMTP username
-							$mail->Password = 'wm12345';                           // SMTP password
-							//$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-							$mail->Port = 25;                                    // TCP port to connect to
-
-							$mail->setFrom('webmaster@grupo-jgm.com');
-							$mail->addAddress('jdsosa@gmail.com');     // Add a recipient
-							$mail->addAddress('webmaster@grupo-jgm.com');
-
-							$mail->isHTML(true);                                  // Set email format to HTML
-
-							$mail->Subject = 'Here is the subject';
-							$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-							$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-							$envio = $mail->send();
-
-							if(!$mail->send()) {
-							    echo 'Message could not be sent.';
-							    echo 'Mailer Error: ' . $mail->ErrorInfo;
-							} else {
-							    echo 'Message has been sent';
-							}
-
-
-						*/?>
 
 					</div>
 
