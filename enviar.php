@@ -103,19 +103,18 @@
 						# Make the call to the client.
 						$result = $mgClient->sendMessage($domain, array(
 						    'from'    => 'Grupo JGM Web <postmaster@mg.grupo-jgm.com>',
-						    'to'      => 'Grupo JGM <jdsosa@gmail.com>',
+						    'to'      => 'Grupo JGM <jgmgrupo@gmail.com>',
 						    'subject' => 'Nuevo mensaje desde la página web',
 						    'text'    => '
-										Ha recibido un nuevo mensaje desde la página web.
+Ha recibido un nuevo mensaje desde la página web.
 
-										Nombre: ' .$nombre .'
-										Apellido: ' .$apellido .'
-										Email: ' .$email .'
-										Comentario: ' .$comentario .'
-								'
-						));
+Nombre: ' .$nombre .'
+Apellido: ' .$apellido .'
+Email: ' .$email .'
+Comentario: ' .$comentario .'
+'));
 
-						echo "<br />Mensaje enviado";
+						echo "<br /><h2 class='sent'>Mensaje enviado</h2>";
 
 						 ?>
 

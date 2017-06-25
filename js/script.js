@@ -1,5 +1,108 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
+    /**
+     * Validar el formulario de contacto
+     */
+    $('#btn-enviar').on('click', function () {
+
+        var nombre = document.getElementById('nombre');
+        var apellido = document.getElementById('apellido');
+        var email = document.getElementById('email');
+        var comentario = document.getElementById('comentario');
+
+        validateInput(nombre);
+        validateInput(apellido);
+        validateInput(comentario);
+        isEmail(email);
+
+    });
+
+    /**
+     * Reglas para validación de los campos
+     *
+     * @param input
+     * @param event
+     * @returns {boolean}
+     */
+    function validateInput (input) {
+        if (input.value == '') {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede estar vacío").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else if ((input.id == 'nombre' || input.id == 'apellido') && input.value.length > 20) {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede contener mas de 20 caracteres").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else if (input.value.length > 200) {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede contener mas de 200 caracteres").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else if (isNaN(input.value) == false) {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede contener números").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else if (!isValid(input.value)) {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede contener caracteres especiales").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else if (hasUrl(input.value)) {
+            event.preventDefault();
+            $('#' + input.id).next('span').text("Este campo no puede contener vínculos").show();
+            $('#' + input.id).removeClass('input-success').addClass('input-error');
+            return false;
+        } else {
+            $('#' + input.id).next('span').hide();
+            $('#' + input.id).removeClass('input-error').addClass('input-success');
+            return true;
+        }
+    }
+
+    /**
+     * Valida que el campo contenga una dirección de correo válida
+     *
+     * @param email
+     * @returns {boolean}
+     */
+    function isEmail (email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (regex.test(email.value)) {
+            $('#' + email.id).next('span').hide();
+            $('#' + email.id).removeClass('input-error').addClass('input-success');
+            return true;
+        } else {
+            event.preventDefault();
+            $('#' + email.id).next('span').text("Debe colocar una dirección de correo válida").show();
+            $('#' + email.id).removeClass('input-success').addClass('input-error');
+            return false;
+        }
+    }
+
+    /**
+     * Valida que el campo no contenga caracteres especiales
+     *
+     * @param str
+     * @returns {boolean}
+     */
+    function isValid (str) {
+        return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+    }
+
+    /**
+     * Valida que el campo no contenga vínculos
+     *
+     * @param str
+     * @returns {boolean}
+     */
+    function hasUrl (str) {
+        return new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(str)
+    }
+});
+$(document).ready(function(){
 	$('ul.tabs li').click(function(){
 		var tab_id = $(this).attr('data-tab');
 
@@ -8,143 +111,129 @@ $(document).ready(function(){
 
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
-	})
-
-})
-
-$(document).ready(function(){
-
-  $('#accordion a').click(function(){
-    var tab_id = $(this).attr('data-tab');
-
-    $('.listaServicios li').removeClass('current-2');
-    $('.tab-content-2').removeClass('current-2');
-    $('.tab-content-3').removeClass('current-3');
-    $('.bottomMenu li').removeClass('current-3');
-
-    $('.main-link').addClass('current-2');
-    $("#"+tab_id).addClass('current-2');
-    $('.1').addClass('current-3');
-
-    if (tab_id == "tab-1") {
-      $("#tab-111").addClass('current-3');
-    } else if (tab_id == "tab-2") {
-      $("#tab-121").addClass('current-3');
-    }
-    else if (tab_id == "tab-3") {
-      $("#tab-131").addClass('current-3');
-    }
-    else if (tab_id == "tab-4") {
-      $("#tab-141").addClass('current-3');
-    }
-    else if (tab_id == "tab-5") {
-      $("#tab-211").addClass('current-3');
-    }
-    else if (tab_id == "tab-6") {
-      $("#tab-221").addClass('current-3');
-    }
-    else if (tab_id == "tab-7") {
-      $("#tab-231").addClass('current-3');
-    }
-    else if (tab_id == "tab-9") {
-      $("#tab-411").addClass('current-3');
-    }
-    else if (tab_id == "tab-13") {
-      $("#tab-511").addClass('current-3');
-    }
-    else if (tab_id == "tab-14") {
-      $("#tab-521").addClass('current-3');
-    }
-    else if (tab_id == "tab-15") {
-      $("#tab-531").addClass('current-3');
-    }
-  })
-
-})
-
-$(document).ready(function(){
-
-	$('.listaServicios li').click(function(){
-		var tab_id = $(this).attr('data-tab');
-
-		$('.listaServicios li').removeClass('current-2');
-		$('.tab-content-2').removeClass('current-2');
-    $('.tab-content-3').removeClass('current-3');
-    $('.bottomMenu li').removeClass('current-3');
-
-		$(this).addClass('current-2');
-		$("#"+tab_id).addClass('current-2');
-    $('.1').addClass('current-3');
-
-
-    if (tab_id == "tab-1") {
-      $("#tab-111").addClass('current-3');
-    } else if (tab_id == "tab-2") {
-      $("#tab-121").addClass('current-3');
-    }
-    else if (tab_id == "tab-3") {
-      $("#tab-131").addClass('current-3');
-    }
-    else if (tab_id == "tab-4") {
-      $("#tab-141").addClass('current-3');
-    }
-    else if (tab_id == "tab-5") {
-      $("#tab-211").addClass('current-3');
-    }
-    else if (tab_id == "tab-6") {
-      $("#tab-221").addClass('current-3');
-    }
-    else if (tab_id == "tab-7") {
-      $("#tab-231").addClass('current-3');
-    }
-    else if (tab_id == "tab-9") {
-      $("#tab-411").addClass('current-3');
-    }
-		else if (tab_id == "tab-13") {
-      $("#tab-511").addClass('current-3');
-    }
-		else if (tab_id == "tab-14") {
-      $("#tab-521").addClass('current-3');
-    }
-		else if (tab_id == "tab-15") {
-      $("#tab-531").addClass('current-3');
-    }
-
-
-	})
-
-})
-
-$(document).ready(function(){
-
-  $('.listaServiciosBottom li').click(function(){
-    var tab_id = $(this).attr('data-tab');
-
-    $('.listaServiciosBottom li').removeClass('current-3');
-    $('.tab-content-3').removeClass('current-3');
-
-    $(this).addClass('current-3');
-    $("#"+tab_id).addClass('current-3');
-
-  })
-
-})
-
-$(document).ready(function() {
-		$(".fancybox").fancybox({
-			openEffect	: 'fade',
-			closeEffect	: 'fade',
-			helpers : {
-				title : { type : 'inside' }
-			}, // helpers
-				beforeLoad: function() {
-					this.title = $(this.element).attr('caption');
-			}
-		});
 	});
 
-/* JSSOR Start */
+    $('#accordion a').click(function(){
+        var tab_id = $(this).attr('data-tab');
 
+        $('.listaServicios li').removeClass('current-2');
+        $('.tab-content-2').removeClass('current-2');
+        $('.tab-content-3').removeClass('current-3');
+        $('.bottomMenu li').removeClass('current-3');
+
+        $('.main-link').addClass('current-2');
+        $("#"+tab_id).addClass('current-2');
+        $('.1').addClass('current-3');
+
+        if (tab_id == "tab-1") {
+            $("#tab-111").addClass('current-3');
+        } else if (tab_id == "tab-2") {
+            $("#tab-121").addClass('current-3');
+        }
+        else if (tab_id == "tab-3") {
+            $("#tab-131").addClass('current-3');
+        }
+        else if (tab_id == "tab-4") {
+            $("#tab-141").addClass('current-3');
+        }
+        else if (tab_id == "tab-5") {
+            $("#tab-211").addClass('current-3');
+        }
+        else if (tab_id == "tab-6") {
+            $("#tab-221").addClass('current-3');
+        }
+        else if (tab_id == "tab-7") {
+            $("#tab-231").addClass('current-3');
+        }
+        else if (tab_id == "tab-9") {
+            $("#tab-411").addClass('current-3');
+        }
+        else if (tab_id == "tab-13") {
+            $("#tab-511").addClass('current-3');
+        }
+        else if (tab_id == "tab-14") {
+            $("#tab-521").addClass('current-3');
+        }
+        else if (tab_id == "tab-15") {
+            $("#tab-531").addClass('current-3');
+        }
+    });
+
+    $('.listaServicios li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        $('.listaServicios li').removeClass('current-2');
+        $('.tab-content-2').removeClass('current-2');
+        $('.tab-content-3').removeClass('current-3');
+        $('.bottomMenu li').removeClass('current-3');
+
+        $(this).addClass('current-2');
+        $("#"+tab_id).addClass('current-2');
+        $('.1').addClass('current-3');
+
+
+        if (tab_id == "tab-1") {
+            $("#tab-111").addClass('current-3');
+        } else if (tab_id == "tab-2") {
+            $("#tab-121").addClass('current-3');
+        }
+        else if (tab_id == "tab-3") {
+            $("#tab-131").addClass('current-3');
+        }
+        else if (tab_id == "tab-4") {
+            $("#tab-141").addClass('current-3');
+        }
+        else if (tab_id == "tab-5") {
+            $("#tab-211").addClass('current-3');
+        }
+        else if (tab_id == "tab-6") {
+            $("#tab-221").addClass('current-3');
+        }
+        else if (tab_id == "tab-7") {
+            $("#tab-231").addClass('current-3');
+        }
+        else if (tab_id == "tab-9") {
+            $("#tab-411").addClass('current-3');
+        }
+        else if (tab_id == "tab-13") {
+            $("#tab-511").addClass('current-3');
+        }
+        else if (tab_id == "tab-14") {
+            $("#tab-521").addClass('current-3');
+        }
+        else if (tab_id == "tab-15") {
+            $("#tab-531").addClass('current-3');
+        }
+    });
+
+    $('.listaServiciosBottom li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        $('.listaServiciosBottom li').removeClass('current-3');
+        $('.tab-content-3').removeClass('current-3');
+
+        $(this).addClass('current-3');
+        $("#"+tab_id).addClass('current-3');
+    });
+
+    $(".fancybox").fancybox({
+        openEffect	: 'fade',
+        closeEffect	: 'fade',
+        helpers : {
+            title : { type : 'inside' }
+        }, // helpers
+        beforeLoad: function() {
+            this.title = $(this.element).attr('caption');
+        }
+    });
+
+});
+
+/**
+ * JSSOR Start
+ *
+ * @param containerId
+ */
 jssor_1_slider_init = function(containerId) {
 
     var jssor_1_SlideshowTransitions = [
@@ -211,5 +300,6 @@ jssor_1_slider_init = function(containerId) {
     $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
     //responsive code end
 };
-
-/* JSSOR End */
+/**
+ * JSSOR End
+ */
