@@ -5,6 +5,8 @@ $(document).ready(function() {
      */
     $('#btn-enviar').on('click', function () {
 
+        event.preventDefault();
+        
         var nombre = document.getElementById('nombre');
         var apellido = document.getElementById('apellido');
         var email = document.getElementById('email');
@@ -14,7 +16,27 @@ $(document).ready(function() {
         validateInput(apellido);
         validateInput(comentario);
         isEmail(email);
-
+        
+        if (validateInput(nombre) && validateInput(apellido) && validateInput(comentario) && isEmail(email)) {
+        
+            var form = [nombre.value, apellido.value, email.value, comentario.value];
+            var jsonForm = JSON.stringify(form);
+            
+            $.ajax({
+                type: "POST",
+                url: "./email.php",
+                data: {data : jsonForm}, 
+                cache: false,
+                error: function () {
+                    $('.not-sent').show();
+                },
+                success: function(){
+                    $('.form-group').hide();
+                    $('.sent').show();
+                }
+            });
+            
+        }
     });
 
     /**
